@@ -8,14 +8,14 @@ questionForm.addEventListener("submit", e => {
   if (questionInput.value !== "") {
     xhr.open("GET", yesorno);
     xhr.send(null);
-    Answer(null, result); // 로딩 상태로 초기화
+    Answer(null, null, result); // 로딩 상태로 초기화
     xhr.onreadystatechange = () => {
       const DONE = 4;
       const OK = 200;
       if (xhr.readyState === DONE) {
         if (xhr.status == OK) {
           const { answer } = JSON.parse(xhr.responseText);
-          Answer(answer, result);
+          Answer(answer, questionInput.value, result);
         } else {
           console.error("Error : " + xhr.status);
         }
@@ -26,18 +26,20 @@ questionForm.addEventListener("submit", e => {
   }
 });
 
-const Answer = (answer, target) => {
+const Answer = (answer, text, target) => {
   if (answer === "yes") {
     target.innerHTML = `
         <div class="card round-bordered flex-center result-yes" id="result">
-          <p>해라</p>
+          <p id="result-question">${text} : </p>
+          <p id="result-large">해라</p>
           <button onClick="closeCard()" class="button" id="close-card">닫기</button>
         </div>
       `;
   } else if (answer === "no") {
     target.innerHTML = `
         <div class="card round-bordered flex-center result-no" id="result">
-          <p>하지마라</p>
+          <p id="result-question">${text} : </p>
+          <p id="result-large">하지마라</p>
           <button onClick="closeCard()" class="button" id="close-card">닫기</button>
         </div>
       `;

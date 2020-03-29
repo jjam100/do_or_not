@@ -74,20 +74,27 @@ section#result{
   z-index: 1;
 }
 
-section#result p{
+p#result-question {
+  padding: 0px 10px;
+  font-size: 0.8em;
+  margin: 0;
+  letter-spacing: -0.15em;
+}
+
+section#result p#result-large{
   margin: 30px;
   font-size: 1.9em;
   font-weight: bolder;
 }
 
-.result-yes p{
+.result-yes p#result-large{
   color: #00249C;
 }
 
-.result-no p{
+.result-no p#result-large{
   color: #CF4520;
 }
 
-.result-loading p{
+.result-loading p#result-large{
   color: #454142;
 }
