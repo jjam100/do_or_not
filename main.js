@@ -44,7 +44,7 @@ const Answer = (answer, target) => {
   } else {
     target.innerHTML = `
         <div class="card round-bordered flex-center result-loading" id="result">
-          <p>로딩중...</p>
+          <p>결정 중...</p>
         </div>
       `;
   }
