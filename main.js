@@ -4,7 +4,7 @@ const result = document.getElementById("result");
 const questionForm = document.getElementById("question-form");
 const questionInput = document.getElementById("question-input");
 questionForm.addEventListener("submit", e => {
-  e.preventDefault();
+  e.preventDefault ? e.preventDefault() : (e.returnValue = false); // 호환성
   if (questionInput.value !== "") {
     xhr.open("GET", yesorno);
     xhr.send(null);
