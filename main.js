@@ -24,6 +24,7 @@ questionForm.addEventListener("submit", e => {
   } else {
     alert("질문을 입력해주세요.");
   }
+  return false;
 });
 
 const Answer = (answer, text, target) => {
